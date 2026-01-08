@@ -156,7 +156,32 @@
         .anchor {
             scroll-margin-top: 90px;
         }
+
+        .project-gallery {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+        
+            overflow-x: auto;
+            overflow-y: hidden;
+        
+            align-items: center;
+        
+            min-height: 220px;
+            padding: 0.5rem 0;
+        }
+
+        .project-gallery img {
+            height: 200px;
+            width: auto;
+        
+            border-radius: 12px;
+            object-fit: cover;
+        
+            flex-shrink: 0;
+        }
     </style>
+    
 </head>
 <body>
 
