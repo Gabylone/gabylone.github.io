@@ -5,94 +5,8 @@
     <title>Portfolio – Jeux Vidéo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <style>
-        :root {
-            --bg: #0f1220;
-            --bg-alt: #161a33;
-            --text: #e6e6eb;
-            --muted: #a0a3c0;
-            --accent: #6c8cff;
-        }
-
-        body {
-            margin: 0;
-            font-family: system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(15,18,32,0.9);
-            border-bottom: 1px solid #22264a;
-            z-index: 1000;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            padding: 1rem 1.5rem;
-        }
-
-        nav .logo {
-            font-weight: 700;
-            margin-right: auto;
-        }
-
-        nav a {
-            color: var(--muted);
-            text-decoration: none;
-            margin-left: 1.5rem;
-        }
-
-        section {
-            padding: 6rem 1.5rem 4rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .anchor {
-            scroll-margin-top: 90px;
-        }
-
-        /* === PROJET EN LIGNE === */
-        .project-row {
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-        }
-
-        .project-info {
-            flex: 0 0 280px;
-        }
-
-        .project-info p {
-            color: var(--muted);
-        }
-
-        .project-gallery {
-            display: flex;
-            gap: 1rem;
-            overflow-x: auto;
-            overflow-y: hidden;
-            min-height: 220px;
-        }
-
-        .project-gallery img {
-            height: 200px;
-            width: auto;
-            border-radius: 12px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-    </style>
+    <!-- CSS séparé -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -124,26 +38,10 @@
             </div>
 
             <div class="project-gallery">
-                <img src="images/anct/ANCT_1.png" alt="Capture 1">
-                <img src="images/anct/ANCT_2.png" alt="Capture 2">
-                <img src="images/anct/ANCT_3.png" alt="Capture 3">
-            </div>
-        </div>
-
-        <div class="project-row">
-            <div class="project-info">
-                <h3>autre truc</h3>
-                <p>
-                    Serious game de formation en entreprise.
-                    Simulation interactive développée sous Unity.
-                </p>
-            </div>
-
-            <div class="project-gallery">
-                <img src="images/avneer/avneer_1.png" alt="Capture 1">
-                <img src="images/avneer/avneer_2.png" alt="Capture 2">
-                <img src="images/avneer/avneer_3.png" alt="Capture 3">
-                <img src="images/avneer/avneer_4.png" alt="Capture 4">
+                <div class="gallery-hint"></div>
+                <img src="images/serious/projet1_1.jpg" alt="Capture 1">
+                <img src="images/serious/projet1_2.jpg" alt="Capture 2">
+                <img src="images/serious/projet1_3.jpg" alt="Capture 3">
             </div>
         </div>
     </div>
