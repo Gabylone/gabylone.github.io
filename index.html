@@ -39,6 +39,14 @@
 
             <div class="project-gallery">
                 <div class="gallery-hint"></div>
+                
+                <div class="video-thumb media-item" data-video="videos/demo.mp4">
+                    <video muted preload="metadata">
+                        <source src="videos/demo.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button"></div>
+                </div>
+                
                 <img src="images/anct/ANCT_1.png" alt="Capture 1">
                 <img src="images/anct/ANCT_2.png" alt="Capture 2">
                 <img src="images/anct/ANCT_3.png" alt="Capture 3">
@@ -79,6 +87,49 @@ document.querySelectorAll('.project-gallery').forEach(gallery => {
     });
 });
 </script>
+
+<script>
+const lightbox = document.getElementById('lightbox');
+const content = document.querySelector('.lightbox-content');
+const closeBtn = document.querySelector('#lightbox .close');
+
+document.querySelectorAll('.media-item').forEach(item => {
+    item.addEventListener('click', () => {
+        content.innerHTML = '';
+
+        if (item.dataset.video) {
+            const video = document.createElement('video');
+            video.src = item.dataset.video;
+            video.controls = true;
+            video.autoplay = true;
+            content.appendChild(video);
+        } else {
+            const img = document.createElement('img');
+            img.src = item.src;
+            content.appendChild(img);
+        }
+
+        lightbox.classList.add('active');
+    });
+});
+
+closeBtn.addEventListener('click', () => {
+    content.innerHTML = '';
+    lightbox.classList.remove('active');
+});
+
+lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) {
+        closeBtn.click();
+    }
+});
+</script>
+
+    
+<div id="lightbox">
+    <span class="close">×</span>
+    <div class="lightbox-content"></div>
+</div>
     
 </body>
 </html>
