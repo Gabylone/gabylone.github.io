@@ -109,11 +109,12 @@
     }
 
     .project-gallery img,
-    .video-thumb video {
+    .project-gallery video {
         -webkit-user-drag: none;
         user-select: none;
+        pointer-events: none;
     }
-
+    
     /* Indicateur de swipe */
     .project-gallery {
         position: relative;
@@ -137,6 +138,10 @@
             rgba(15,18,32,0),
             rgba(15,18,32,0.85)
         );
+    }
+
+    .gallery-hint {
+        pointer-events: none;
     }
     /* ===== RESPONSIVE ===== */
 
@@ -164,6 +169,7 @@
     .media-item {
         cursor: pointer;
         position: relative;
+        pointer-events: auto;
     }
     
     /* Vidéo miniature */
