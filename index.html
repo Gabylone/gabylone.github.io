@@ -125,6 +125,25 @@ lightbox.addEventListener('click', e => {
 });
 </script>
 
+<script>
+document.querySelectorAll('.project-gallery').forEach(gallery => {
+    const hint = gallery.querySelector('.gallery-hint');
+    
+    if (!hint) return;
+    
+    const updateHint = () => {
+        const maxScroll =
+            gallery.scrollWidth - gallery.clientWidth;
+    
+        hint.style.opacity =
+        gallery.scrollLeft < maxScroll - 5 ? '1' : '0';
+};
+
+gallery.addEventListener('scroll', updateHint);
+updateHint();
+});
+</script>
+
     
 <div id="lightbox">
     <span class="close">×</span>
