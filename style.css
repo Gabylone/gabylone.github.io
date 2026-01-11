@@ -138,3 +138,77 @@
             height: 160px;
         }
     }
+
+
+    /* ===== MEDIA INTERACTIFS ===== */
+    
+    .media-item {
+        cursor: pointer;
+        position: relative;
+    }
+    
+    /* Vidéo miniature */
+    .video-thumb video {
+        height: 200px;
+        border-radius: 12px;
+        display: block;
+    }
+    
+    /* Bouton play */
+    .play-button {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .play-button::before {
+        content: '▶';
+        font-size: 48px;
+        color: white;
+        background: rgba(0,0,0,0.5);
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s, background 0.2s;
+    }
+    
+    .video-thumb:hover .play-button::before {
+        transform: scale(1.1);
+        background: rgba(0,0,0,0.7);
+    }
+    
+    /* ===== LIGHTBOX ===== */
+    
+    #lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.9);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+    }
+    
+    #lightbox.active {
+        display: flex;
+    }
+    
+    .lightbox-content img,
+    .lightbox-content video {
+        max-width: 90vw;
+        max-height: 90vh;
+    }
+    
+    #lightbox .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 32px;
+        color: white;
+        cursor: pointer;
+    }
