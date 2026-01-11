@@ -112,17 +112,22 @@
     .video-thumb video {
         -webkit-user-drag: none;
         user-select: none;
-        pointer-events: auto;
     }
 
     /* Indicateur de swipe */
+    .project-gallery {
+        position: relative;
+    }
+    
     .gallery-hint {
         position: absolute;
         right: 0;
         top: 0;
         bottom: 0;
+    
         width: 60px;
         pointer-events: none;
+        z-index: 5;
     
         opacity: 1;
         transition: opacity 0.3s ease;
