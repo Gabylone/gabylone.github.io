@@ -87,8 +87,13 @@
         overflow-y: hidden;
         min-height: 220px;
         padding-bottom: 0.5rem;
+        cursor: grab;
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* IE */
+    }
+
+    .project-gallery.dragging {
+        cursor: grabbing;
     }
 
     .project-gallery::-webkit-scrollbar {
