@@ -108,6 +108,13 @@
         flex-shrink: 0;
     }
 
+    .project-gallery img,
+    .video-thumb video {
+        -webkit-user-drag: none;
+        user-select: none;
+        pointer-events: auto;
+    }
+
     /* Indicateur de swipe */
     .gallery-hint {
         position: absolute;
@@ -116,9 +123,16 @@
         bottom: 0;
         width: 60px;
         pointer-events: none;
-        background: linear-gradient( to right, rgba(15,18,32,0), rgba(15,18,32,0.8) );
+    
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    
+        background: linear-gradient(
+            to right,
+            rgba(15,18,32,0),
+            rgba(15,18,32,0.85)
+        );
     }
-
     /* ===== RESPONSIVE ===== */
 
     @media (max-width: 900px) {
