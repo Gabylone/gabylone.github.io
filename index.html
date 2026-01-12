@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <title>Site_1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- CSS séparé -->
+    <meta charset="UTF-8">
+    <title>Portfolio – Jeux Vidéo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,152 +15,36 @@
     </nav>
 </header>
 
-<section class="hero">
-    <div class="container">
-        <h1>Développeur Jeux Vidéo</h1>
-        <p>Portfolio de projets professionnels et expérimentaux.</p>
-    </div>
-</section>
-
-<section id="serious" class="anchor">
+<section id="serious">
     <div class="container">
         <h2>Serious Games</h2>
+
         <div class="project-row">
-        
+
             <div class="project-info">
-                <h3>Projet Formation Sécurité</h3>
-                <p>
-                    Serious game de formation en entreprise.
-                    Simulation interactive développée sous Unity.
-                </p>
+                <h3>Projet ANCT</h3>
+                <p>Serious game de formation.</p>
             </div>
-        
+
             <div class="project-gallery">
-        
-                <div class="gallery-hint"></div>
-        
+
                 <div class="media-item">
-                    <img
-                        src="images/anct/ANCT_1.png"
-                        alt="Projet formation sécurité"
-                        draggable="false">
+                    <img src="images/anct/ANCT_1.png" alt="">
                 </div>
-        
+
                 <div class="media-item">
-                    <img
-                        src="images/anct/ANCT_2.png"
-                        alt="Projet formation sécurité"
-                        draggable="false">
+                    <img src="images/anct/ANCT_2.png" alt="">
                 </div>
-        
+
                 <div class="media-item">
-                    <img
-                        src="images/anct/ANCT_3.png"
-                        alt="Projet formation sécurité"
-                        draggable="false">
+                    <img src="images/anct/ANCT_3.png" alt="">
                 </div>
-        
+
             </div>
-        
+
         </div>
-        
     </div>
 </section>
 
-<div id="lightbox">
-    <span class="close">×</span>
-    <div class="lightbox-content"></div>
-</div>
-
-<script>
-document.querySelectorAll('.project-gallery').forEach(gallery => {
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    gallery.addEventListener('mousedown', (e) => {
-        isDown = true;
-        gallery.classList.add('dragging');
-        startX = e.pageX - gallery.offsetLeft;
-        scrollLeft = gallery.scrollLeft;
-    });
-
-    gallery.addEventListener('mouseleave', () => {
-        isDown = false;
-        gallery.classList.remove('dragging');
-    });
-
-    gallery.addEventListener('mouseup', () => {
-        isDown = false;
-        gallery.classList.remove('dragging');
-    });
-
-    gallery.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - gallery.offsetLeft;
-        const walk = (x - startX);
-        gallery.scrollLeft = scrollLeft - walk;
-    });
-});
-</script>
-
-<script>
-const lightbox = document.getElementById('lightbox');
-const content = document.querySelector('.lightbox-content');
-const closeBtn = document.querySelector('#lightbox .close');
-
-document.querySelectorAll('.media-item').forEach(item => {
-    item.addEventListener('click', () => {
-        content.innerHTML = '';
-
-        if (item.dataset.video) {
-            const video = document.createElement('video');
-            video.src = item.dataset.video;
-            video.controls = true;
-            video.autoplay = true;
-            content.appendChild(video);
-        } else {
-            const source = item.querySelector('img');
-            const img = document.createElement('img');
-            img.src = source.src;
-            content.appendChild(img);
-        }
-
-        lightbox.classList.add('active');
-    });
-});
-
-closeBtn.addEventListener('click', () => {
-    content.innerHTML = '';
-    lightbox.classList.remove('active');
-});
-
-lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) {
-        closeBtn.click();
-    }
-});
-</script>
-
-<script>
-document.querySelectorAll('.project-gallery').forEach(gallery => {
-    const hint = gallery.querySelector('.gallery-hint');
-    
-    if (!hint) return;
-    
-    const updateHint = () => {
-        const maxScroll =
-            gallery.scrollWidth - gallery.clientWidth;
-    
-        hint.style.opacity =
-        gallery.scrollLeft < maxScroll - 5 ? '1' : '0';
-};
-
-gallery.addEventListener('scroll', updateHint);
-updateHint();
-});
-</script>
-    
 </body>
 </html>
