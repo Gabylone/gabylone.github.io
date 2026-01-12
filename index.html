@@ -2,8 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio – Jeux Vidéo</title>
+    <title>nvoua</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,16 +29,20 @@
 
             <div class="project-gallery">
 
+                <!-- Hint -->
+                <div class="gallery-hint"></div>
+
+                <!-- Images -->
                 <div class="media-item">
-                    <img src="images/anct/ANCT_1.png" alt="">
+                    <img src="images/anct/ANCT_1.png" draggable="false">
                 </div>
 
                 <div class="media-item">
-                    <img src="images/anct/ANCT_2.png" alt="">
+                    <img src="images/anct/ANCT_2.png" draggable="false">
                 </div>
 
                 <div class="media-item">
-                    <img src="images/anct/ANCT_3.png" alt="">
+                    <img src="images/anct/ANCT_3.png" draggable="false">
                 </div>
 
             </div>
@@ -45,6 +50,67 @@
         </div>
     </div>
 </section>
+
+<!-- ================= JS : TOUJOURS EN BAS ================= -->
+<script>
+document.querySelectorAll('.project-gallery').forEach(gallery => {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let moved = false;
+
+    gallery.addEventListener('mousedown', e => {
+        isDown = true;
+        moved = false;
+        startX = e.pageX;
+        scrollLeft = gallery.scrollLeft;
+        gallery.classList.add('dragging');
+    });
+
+    gallery.addEventListener('mousemove', e => {
+        if (!isDown) return;
+
+        const dx = e.pageX - startX;
+
+        if (Math.abs(dx) > 5) {
+            moved = true;
+        }
+
+        gallery.scrollLeft = scrollLeft - dx;
+    });
+
+    gallery.addEventListener('mouseup', () => {
+        isDown = false;
+        gallery.classList.remove('dragging');
+    });
+
+    gallery.addEventListener('mouseleave', () => {
+        isDown = false;
+        gallery.classList.remove('dragging');
+    });
+
+    // Empêche clic après swipe
+    gallery.addEventListener('click', e => {
+        if (moved) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, true);
+
+    // Gestion du hint
+    const hint = gallery.querySelector('.gallery-hint');
+
+    if (hint) {
+        const updateHint = () => {
+            const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+            hint.style.opacity = gallery.scrollLeft < maxScroll - 5 ? '1' : '0';
+        };
+
+        gallery.addEventListener('scroll', updateHint);
+        updateHint();
+    }
+});
+</script>
 
 </body>
 </html>
