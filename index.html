@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
-    <title>Portfolio – Jeux Vidéo</title>
+    <title>Site_1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSS séparé -->
@@ -68,6 +68,11 @@
         
     </div>
 </section>
+
+<div id="lightbox">
+    <span class="close">×</span>
+    <div class="lightbox-content"></div>
+</div>
 
 <script>
 document.querySelectorAll('.project-gallery').forEach(gallery => {
@@ -158,12 +163,6 @@ gallery.addEventListener('scroll', updateHint);
 updateHint();
 });
 </script>
-
-    
-<div id="lightbox">
-    <span class="close">×</span>
-    <div class="lightbox-content"></div>
-</div>
     
 </body>
 </html>
