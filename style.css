@@ -78,8 +78,13 @@ section {
     -ms-overflow-style: none;    /* IE */
 }
 
+.project-gallery {
+    -webkit-overflow-scrolling: touch;
+}
+
 .project-gallery::-webkit-scrollbar {
     display: none;               /* Chrome / Safari */
+    height:0;
 }
 
 .project-gallery.dragging {
