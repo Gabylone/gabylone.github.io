@@ -23,6 +23,7 @@ header {
     top: 0;
     background: rgba(15,18,32,0.9);
     border-bottom: 1px solid #22264a;
+    z-index: 100;
 }
 
 nav {
@@ -60,18 +61,57 @@ section {
     width: 280px;
 }
 
+/* ===== GALLERY ===== */
+
 .project-gallery {
     position: relative;
     display: flex;
     gap: 1rem;
+
     overflow-x: auto;
+    overflow-y: hidden;
+
     padding-bottom: 0.5rem;
+    cursor: grab;
+
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* IE */
 }
+
+.project-gallery::-webkit-scrollbar {
+    display: none;               /* Chrome / Safari */
+}
+
+.project-gallery.dragging {
+    cursor: grabbing;
+}
+
+/* 🔴 IMPORTANT : empêcher le drag natif */
+.project-gallery img {
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Mais autoriser le clic via le wrapper */
+.media-item {
+    flex-shrink: 0;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.media-item img {
+    height: 200px;
+    width: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+/* ===== GALLERY HINT ===== */
 
 .gallery-hint {
     position: sticky;
     right: 0;
-    left: auto;
     top: 0;
 
     width: 60px;
@@ -81,22 +121,14 @@ section {
     pointer-events: none;
     z-index: 10;
 
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
     background: linear-gradient(
         to right,
         rgba(15,18,32,0),
         rgba(15,18,32,0.85)
     );
-}
-
-.media-item {
-    flex-shrink: 0;
-}
-
-.media-item img {
-    height: 200px;
-    width: auto;
-    display: block;
-    border-radius: 12px;
 }
 
 /* ===== RESPONSIVE ===== */
