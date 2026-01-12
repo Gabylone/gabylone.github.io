@@ -27,9 +27,8 @@
 <section id="serious" class="anchor">
     <div class="container">
         <h2>Serious Games</h2>
-
         <div class="project-row">
-            
+        
             <div class="project-info">
                 <h3>Projet Formation Sécurité</h3>
                 <p>
@@ -37,6 +36,34 @@
                     Simulation interactive développée sous Unity.
                 </p>
             </div>
+        
+            <div class="project-gallery">
+        
+                <div class="gallery-hint"></div>
+        
+                <div class="media-item">
+                    <img
+                        src="images/serious/projet1_1.jpg"
+                        alt="Projet formation sécurité"
+                        draggable="false">
+                </div>
+        
+                <div class="media-item">
+                    <img
+                        src="images/serious/projet1_2.jpg"
+                        alt="Projet formation sécurité"
+                        draggable="false">
+                </div>
+        
+                <div class="media-item">
+                    <img
+                        src="images/serious/projet1_3.jpg"
+                        alt="Projet formation sécurité"
+                        draggable="false">
+                </div>
+        
+            </div>
+        
         </div>
         
     </div>
@@ -91,8 +118,9 @@ document.querySelectorAll('.media-item').forEach(item => {
             video.autoplay = true;
             content.appendChild(video);
         } else {
+            const source = item.querySelector('img');
             const img = document.createElement('img');
-            img.src = item.src;
+            img.src = source.src;
             content.appendChild(img);
         }
 
