@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio – Jeux Vidéo</title>
+    <title>Le site</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css?v=1">
 </head>
@@ -33,6 +33,13 @@
 
                 <div class="project-gallery">
 
+                    <div class="media-item video" data-video="videos/demo.mp4">
+                        <video muted playsinline preload="metadata">
+                            <source src="videos/demo.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon">▶</div>
+                    </div>
+
                     <div class="media-item">
                         <img src="images/anct/ANCT_1.png" alt="" draggable="false">
                     </div>
@@ -45,6 +52,15 @@
                         <img src="images/anct/ANCT_3.png" alt="" draggable="false">
                     </div>
 
+                    <div class="media-item">
+                        <img src="images/anct/ANCT_4.png" alt="" draggable="false">
+                    </div>
+
+                    <div class="media-item">
+                        <img src="images/anct/ANCT_5.png" alt="" draggable="false">
+                    </div>
+
+
                 </div>
             </div>
 
@@ -53,7 +69,7 @@
 </section>
 
 <div id="lightbox">
-    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-inner"></div>
 </div>
 
 <script>
@@ -110,36 +126,48 @@ document.querySelectorAll('.project-gallery').forEach(gallery => {
 
 <script>
 const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
+const inner = document.querySelector('.lightbox-inner');
 
 document.querySelectorAll('.media-item').forEach(item => {
     item.addEventListener('click', e => {
-        // empêche ouverture si c'était un drag
-        if (item.closest('.project-gallery').classList.contains('dragging')) {
-            return;
+        if (item.closest('.project-gallery').classList.contains('dragging')) return;
+
+        inner.innerHTML = '';
+
+        if (item.classList.contains('video')) {
+            const src = item.dataset.video;
+
+            const video = document.createElement('video');
+            video.src = src;
+            video.controls = true;
+            video.autoplay = true;
+            video.playsInline = true;
+
+            inner.appendChild(video);
+        } else {
+            const img = item.querySelector('img');
+            if (!img) return;
+
+            const full = document.createElement('img');
+            full.src = img.src;
+            inner.appendChild(full);
         }
 
-        const img = item.querySelector('img');
-        if (!img) return;
-
-        lightboxImg.src = img.src;
         lightbox.classList.add('active');
     });
 });
 
 lightbox.addEventListener('click', () => {
     lightbox.classList.remove('active');
-    lightboxImg.src = '';
+    inner.innerHTML = '';
 });
 
 window.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-        lightbox.classList.remove('active');
-        lightboxImg.src = '';
+        lightbox.click();
     }
 });
 </script>
-
 
 </body>
 </html>
