@@ -110,8 +110,10 @@ section {
 }
 
 .media-item {
+    position: relative; /* OBLIGATOIRE */
     flex-shrink: 0;
     pointer-events: auto;
+    cursor: pointer;
 }
 
 .project-gallery img {
@@ -183,10 +185,18 @@ section {
 
 /* ===== LIGHTBOX ===== */
 
-.lightbox-inner video,
-.lightbox-inner img {
+
+
+.lightbox-inner {
     max-width: 90vw;
     max-height: 90vh;
+}
+
+.lightbox-inner video,
+.lightbox-inner img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 #lightbox {
