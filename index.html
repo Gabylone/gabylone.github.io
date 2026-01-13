@@ -27,26 +27,31 @@
                 <p>Serious game de formation.</p>
             </div>
 
-            <div class="project-gallery">
+            <div class="project-gallery-wrapper">
 
-                <!-- Hint -->
-                <div class="gallery-hint"></div>
+                <!-- Hint gauche -->
+                <div class="gallery-hint left"></div>
 
-                <!-- Images -->
-                <div class="media-item">
-                    <img src="images/anct/ANCT_1.png" draggable="false">
+                <!-- Hint droite -->
+                <div class="gallery-hint right"></div>
+
+                <!-- Galerie scrollable -->
+                <div class="project-gallery">
+
+                    <div class="media-item">
+                        <img src="images/anct/ANCT_1.png" draggable="false">
+                    </div>
+
+                    <div class="media-item">
+                        <img src="images/anct/ANCT_2.png" draggable="false">
+                    </div>
+
+                    <div class="media-item">
+                        <img src="images/anct/ANCT_3.png" draggable="false">
+                    </div>
+
                 </div>
-
-                <div class="media-item">
-                    <img src="images/anct/ANCT_2.png" draggable="false">
-                </div>
-
-                <div class="media-item">
-                    <img src="images/anct/ANCT_3.png" draggable="false">
-                </div>
-
             </div>
-
         </div>
     </div>
 </section>
@@ -98,17 +103,25 @@ document.querySelectorAll('.project-gallery').forEach(gallery => {
     }, true);
 
     // Gestion du hint
-    const hint = gallery.querySelector('.gallery-hint');
+    const wrapper = gallery.parentElement;
+    const hintLeft = wrapper.querySelector('.gallery-hint.left');
+    const hintRight = wrapper.querySelector('.gallery-hint.right');
 
-    if (hint) {
-        const updateHint = () => {
-            const maxScroll = gallery.scrollWidth - gallery.clientWidth;
-            hint.style.opacity = gallery.scrollLeft < maxScroll - 5 ? '1' : '0';
-        };
+    const updateHints = () => {
+        const maxScroll = gallery.scrollWidth - gallery.clientWidth;
 
-        gallery.addEventListener('scroll', updateHint);
-        updateHint();
-    }
+        if (hintLeft) {
+            hintLeft.style.opacity = gallery.scrollLeft > 5 ? '1' : '0';
+        }
+
+        if (hintRight) {
+            hintRight.style.opacity =
+                gallery.scrollLeft < maxScroll - 5 ? '1' : '0';
+        }
+    };
+
+    gallery.addEventListener('scroll', updateHints);
+    updateHints();
 });
 </script>
 
