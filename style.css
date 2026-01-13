@@ -64,11 +64,17 @@ section {
 /* ===== GALLERY ===== */
 .project-gallery-wrapper {
     position: relative;
+    overflow: hidden;
 }
 
 .project-gallery {
+    
     display: flex;
     gap: 1rem;
+
+    width:100%;
+    max-width: 100%;
+
     overflow-x: auto;
     overflow-y: hidden;
     padding-bottom: 0.5rem;
@@ -144,6 +150,7 @@ section {
 }
 
 .media-item img {
+    flex-shrink: 0;
     height: 200px;
     width: auto;
     display: block;
