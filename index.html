@@ -2,10 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Gabylone</title>
+    <title>Portfolio – Jeux Vidéo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1">
 </head>
 <body>
 
@@ -16,55 +15,43 @@
     </nav>
 </header>
 
-<section id="serious">
+<section id="serious" class="anchor">
     <div class="container">
         <h2>Serious Games</h2>
 
         <div class="project-row">
 
             <div class="project-info">
-                <h3>Projet ANCT</h3>
-                <p>Serious game de formation.</p>
+                <h3>Projet Formation Sécurité</h3>
+                <p>Serious game de formation développé sous Unity.</p>
             </div>
 
             <div class="project-gallery-wrapper">
 
-                <!-- Hint gauche -->
                 <div class="gallery-hint left"></div>
-
-                <!-- Hint droite -->
                 <div class="gallery-hint right"></div>
 
-                <!-- Galerie scrollable -->
                 <div class="project-gallery">
 
                     <div class="media-item">
-                        <img src="images/anct/ANCT_1.png" draggable="false">
+                        <img src="images/anct/ANCT_1.png" alt="" draggable="false">
                     </div>
 
                     <div class="media-item">
-                        <img src="images/anct/ANCT_2.png" draggable="false">
+                        <img src="images/anct/ANCT_2.png" alt="" draggable="false">
                     </div>
 
                     <div class="media-item">
-                        <img src="images/anct/ANCT_3.png" draggable="false">
-                    </div>
-
-                    <div class="media-item">
-                        <img src="images/anct/ANCT_4.png" draggable="false">
-                    </div>
-
-                    <div class="media-item">
-                        <img src="images/anct/ANCT_5.png" draggable="false">
+                        <img src="images/anct/ANCT_3.png" alt="" draggable="false">
                     </div>
 
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- ================= JS : TOUJOURS EN BAS ================= -->
 <script>
 document.querySelectorAll('.project-gallery').forEach(gallery => {
     let isDown = false;
@@ -80,52 +67,36 @@ document.querySelectorAll('.project-gallery').forEach(gallery => {
         gallery.classList.add('dragging');
     });
 
+    window.addEventListener('mouseup', () => {
+        isDown = false;
+        gallery.classList.remove('dragging');
+    });
+
     gallery.addEventListener('mousemove', e => {
         if (!isDown) return;
-
+        e.preventDefault();
         const dx = e.pageX - startX;
-
-        if (Math.abs(dx) > 5) {
-            moved = true;
-        }
-
+        if (Math.abs(dx) > 5) moved = true;
         gallery.scrollLeft = scrollLeft - dx;
     });
 
-    gallery.addEventListener('mouseup', () => {
-        isDown = false;
-        gallery.classList.remove('dragging');
+    gallery.querySelectorAll('.media-item').forEach(item => {
+        item.addEventListener('click', e => {
+            if (moved) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+            }
+        });
     });
 
-    gallery.addEventListener('mouseleave', () => {
-        isDown = false;
-        gallery.classList.remove('dragging');
-    });
-
-    // Empêche clic après swipe
-    gallery.addEventListener('click', e => {
-        if (moved) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    }, true);
-
-    // Gestion du hint
-    const wrapper = gallery.parentElement;
-    const hintLeft = wrapper.querySelector('.gallery-hint.left');
-    const hintRight = wrapper.querySelector('.gallery-hint.right');
+    const wrapper = gallery.closest('.project-gallery-wrapper');
+    const left = wrapper.querySelector('.gallery-hint.left');
+    const right = wrapper.querySelector('.gallery-hint.right');
 
     const updateHints = () => {
-        const maxScroll = gallery.scrollWidth - gallery.clientWidth;
-
-        if (hintLeft) {
-            hintLeft.style.opacity = gallery.scrollLeft > 5 ? '1' : '0';
-        }
-
-        if (hintRight) {
-            hintRight.style.opacity =
-                gallery.scrollLeft < maxScroll - 5 ? '1' : '0';
-        }
+        const max = gallery.scrollWidth - gallery.clientWidth;
+        left.style.opacity = gallery.scrollLeft > 10 ? '1' : '0';
+        right.style.opacity = gallery.scrollLeft < max - 10 ? '1' : '0';
     };
 
     gallery.addEventListener('scroll', updateHints);

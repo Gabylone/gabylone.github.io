@@ -19,18 +19,20 @@ body {
 /* ===== HEADER ===== */
 
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     background: rgba(15,18,32,0.9);
     border-bottom: 1px solid #22264a;
-    z-index: 100;
+    z-index: 1000;
 }
 
 nav {
     max-width: 1200px;
     margin: auto;
-    padding: 1rem 1.5rem;
     display: flex;
+    padding: 1rem 1.5rem;
 }
 
 nav .logo {
@@ -38,15 +40,25 @@ nav .logo {
     margin-right: auto;
 }
 
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 1.5rem;
+}
+
 /* ===== LAYOUT ===== */
 
 section {
-    padding: 4rem 1.5rem;
+    padding: 6rem 1.5rem 4rem;
 }
 
 .container {
     max-width: 1200px;
     margin: auto;
+}
+
+.anchor {
+    scroll-margin-top: 90px;
 }
 
 /* ===== PROJECT ===== */
@@ -58,33 +70,59 @@ section {
 }
 
 .project-info {
-    width: 280px;
+    flex: 0 0 280px;
+}
+
+.project-info p {
+    color: var(--muted);
 }
 
 /* ===== GALLERY ===== */
+
 .project-gallery-wrapper {
     position: relative;
     overflow: hidden;
+    flex: 1;
 }
 
 .project-gallery {
-    
     display: flex;
     gap: 1rem;
 
-    width:100%;
+    width: 100%;
     max-width: 100%;
 
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 0.5rem;
+
     cursor: grab;
+    padding-bottom: 0.5rem;
 
     scrollbar-width: none;
 }
 
 .project-gallery::-webkit-scrollbar {
     display: none;
+}
+
+.project-gallery.dragging {
+    cursor: grabbing;
+}
+
+.media-item {
+    flex-shrink: 0;
+    pointer-events: auto;
+}
+
+.project-gallery img {
+    height: 200px;
+    width: auto;
+    border-radius: 12px;
+    object-fit: cover;
+
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 /* ===== HINTS ===== */
@@ -94,15 +132,12 @@ section {
     top: 0;
     bottom: 0;
     width: 60px;
-
     pointer-events: none;
     z-index: 10;
-
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-/* Droite */
 .gallery-hint.right {
     right: 0;
     background: linear-gradient(
@@ -112,72 +147,12 @@ section {
     );
 }
 
-/* Gauche */
 .gallery-hint.left {
     left: 0;
     background: linear-gradient(
         to right,
         rgba(15,18,32,0.85),
         rgba(15,18,32,0)
-    );
-}
-
-.project-gallery {
-    -webkit-overflow-scrolling: touch;
-}
-
-.project-gallery::-webkit-scrollbar {
-    display: none;               /* Chrome / Safari */
-    height:0;
-}
-
-.project-gallery.dragging {
-    cursor: grabbing;
-}
-
-/* 🔴 IMPORTANT : empêcher le drag natif */
-.project-gallery img {
-    -webkit-user-drag: none;
-    user-select: none;
-    pointer-events: none;
-}
-
-/* Mais autoriser le clic via le wrapper */
-.media-item {
-    flex-shrink: 0;
-    pointer-events: auto;
-    cursor: pointer;
-}
-
-.media-item img {
-    flex-shrink: 0;
-    height: 200px;
-    width: auto;
-    display: block;
-    border-radius: 12px;
-}
-
-/* ===== GALLERY HINT ===== */
-
-.gallery-hint {
-    position: sticky;
-    right: 0;
-    top: 0;
-
-    width: 60px;
-    height: 100%;
-    flex-shrink: 0;
-
-    pointer-events: none;
-    z-index: 10;
-
-    opacity: 1;
-    transition: opacity 0.3s ease;
-
-    background: linear-gradient(
-        to right,
-        rgba(15,18,32,0),
-        rgba(15,18,32,0.85)
     );
 }
 
@@ -189,10 +164,10 @@ section {
     }
 
     .project-info {
-        width: auto;
+        flex: none;
     }
 
-    .media-item img {
+    .project-gallery img {
         height: 160px;
     }
 }
