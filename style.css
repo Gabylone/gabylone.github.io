@@ -125,6 +125,18 @@ section {
     pointer-events: none;
 }
 
+.project-gallery video {
+    height: 200px;
+    width: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.project-gallery video {
+    pointer-events: none;
+    user-select: none;
+}
+
 /* ===== HINTS ===== */
 
 .gallery-hint {
@@ -173,6 +185,12 @@ section {
 }
 
 /* ===== LIGHTBOX ===== */
+
+.lightbox-inner video,
+.lightbox-inner img {
+    max-width: 90vw;
+    max-height: 90vh;
+}
 
 #lightbox {
     position: fixed;
