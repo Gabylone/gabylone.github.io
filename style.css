@@ -130,9 +130,6 @@ section {
     width: auto;
     border-radius: 12px;
     object-fit: cover;
-}
-
-.project-gallery video {
     pointer-events: none;
     user-select: none;
 }
