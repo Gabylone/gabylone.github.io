@@ -148,6 +148,32 @@ section {
 .project-info {
     flex: 0 0 280px;
 }
+.project-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-meta {
+    margin-top: auto;
+    padding-top: 1rem;
+
+    font-size: 0.85rem;
+    color: var(--muted);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.project-client a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.project-client a:hover {
+    text-decoration: underline;
+}
 
 .project-info p {
     color: var(--muted);

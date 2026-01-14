@@ -1,0 +1,14 @@
+focal one
+- Démonstration et outil de formation VR d'une machine médicale.
+- Exposé à un grand salon de technologie medicale à Milan.
+
+Meuse Rider
+- Application VR pour promouvoir une piste cyclable du département de la meuse.
+- Rendu Réaliste sur IOS / Android grâce à vidéos 360 degrés.
+
+Playful Culture
+- E Learning d'éveil pour enfant.
+- Apprentissage d'une période historique mélant manipulations AR et IRL ( dans la vraie vie ).
+
+Renault
+- Formation E learning de sécurité pour les
