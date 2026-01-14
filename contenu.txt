@@ -11,4 +11,29 @@ Playful Culture
 - Apprentissage d'une période historique mélant manipulations AR et IRL ( dans la vraie vie ).
 
 Renault
-- Formation E learning de sécurité pour les
+- Formation E learning de sécurité pour l'équipement des batterie éléctronique.
+- Double application : Mise en situation et superposition AR de découpage de la batterie.
+
+--------
+
+Avneer
+- Chatbot Parcours sup pour discuter avec potentiels métiers.
+- Prise en charge de très grand nombre de données.
+- Application ambitieuse et complète
+
+E Casa
+- Application de développement personnel 
+- Gameification de la sante ( plus cool que ça quand meme )
+
+OOPAIP
+- Avec les ARchives INA.
+- gestion d'une grande base de données, travail avec les bases de données de l'INA.
+- Applcation visant à reconnaitre et étiqueter les élémenst de langage dans les débats politique
+
+Pradaj
+- Chatbot de sécurité routière en liant avec la gestion des émotions.
+- Développée pour la gourvenement français à la louche
+
+-----------
+
+Stagiaire 
