@@ -1,4 +1,4 @@
-focal one
+Focal One
 - Démonstration et outil de formation VR d'une machine médicale.
 - Exposé à un grand salon de technologie medicale à Milan.
 
@@ -14,7 +14,7 @@ Renault
 - Formation E learning de sécurité pour l'équipement des batterie éléctronique.
 - Double application : Mise en situation et superposition AR de découpage de la batterie.
 
---------
+---------------------------------------------------------------------------------------------------------------
 
 Avneer
 - Chatbot Parcours sup pour discuter avec potentiels métiers.
@@ -50,7 +50,7 @@ Prisme 7
 - Jeu officiel du centre pompidou (Beaubourg). Experience contemplative et ludique dans l'univers de différents artistes contemporain.
 - Le projet a été exposé dans l'espace mediation culturelle.
 
----------
+---------------------------------------------------------------------------------------------------
 
 Seaway Saga
 - RPG mobile avec composantes visual novel.
