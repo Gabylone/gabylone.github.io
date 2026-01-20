@@ -36,4 +36,25 @@ Pradaj
 
 -----------
 
-Stagiaire 
+ANCT
+- jeu d'objet caché pour l'Agence nationale pour la cohésion des territoires
+- Dispositif pédagogique pour la sensibilisation des actions de l'Agence
+
+Infolympics
+- Minijeux visant à repérer et étiquetter les signes de fake news sur diverses documents.
+
+Poinçonneur de l'IA
+- Collaboration avec l'artiste contemporain Felipe Vilas Boas pour la fondation EDF.
+
+Prisme 7
+- Jeu officiel du centre pompidou (Beaubourg). Experience contemplative et ludique dans l'univers de différents artistes contemporain.
+- Le projet a été exposé dans l'espace mediation culturelle.
+
+---------
+
+Seaway Saga
+- RPG mobile avec composantes visual novel.
+
+Lily Colors of Santa Luz
+- Jeu d'infiltration mais aussi très narratif. Un père et sa fille fuient une ville en guerre.
+- Récompensé aux Pings Awards ( meilleur jeu étudiant ). Nominé aux Unity Awards (L.A.) à l'Indie Game Festival de la Game Developper Conference (San Francisco) et aux SXSW Gaming Awards (Austin, Texas)
